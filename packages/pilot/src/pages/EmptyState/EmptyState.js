@@ -20,6 +20,7 @@ import {
   when,
 } from 'ramda'
 import { translate } from 'react-i18next'
+import Loader from '../../components/Loader'
 import EmptyStateContainer from '../../containers/EmptyState'
 import { withError } from '../ErrorBoundary'
 import environment from '../../environment'
@@ -79,6 +80,9 @@ const mapStateToProps = ({
     company,
     user,
   },
+  onboarding: {
+    loading,
+  },
   welcome: {
     onboardingAnswers,
   },
@@ -87,6 +91,7 @@ const mapStateToProps = ({
   alreadyTransacted: getAlreadyTransacted(company),
   fees: getFees(company),
   isAdmin: hasAdminPermission(user),
+  loading,
   onboardingAnswers,
   userName: getUserName(user),
 })
@@ -118,6 +123,7 @@ const EmptyState = ({
     push,
   },
   isAdmin,
+  loading,
   onboardingAnswers,
   requestOnboardingAnswers,
   t,
@@ -134,6 +140,16 @@ const EmptyState = ({
       push('/onboarding')
     }
   }, [alreadyTransacted, isAdmin, onboardingAnswers, push])
+
+  if (loading) {
+    return (
+      <Loader
+        text={t('loading')}
+        position="relative"
+        visible
+      />
+    )
+  }
 
   return (
     <EmptyStateContainer
@@ -171,6 +187,7 @@ EmptyState.propTypes = {
     push: PropTypes.func.isRequired,
   }).isRequired,
   isAdmin: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
   onboardingAnswers: PropTypes.shape({}),
   requestOnboardingAnswers: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
