@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Flexbox } from 'former-kit'
-import formatPercent from '../../../formatters/percent'
-import formatCurrency from '../../../formatters/currency'
+import formatPercent from '../../formatters/percent'
+import formatCurrency from '../../formatters/currency'
 import styles from './styles.css'
 
 const formatterByType = {
@@ -14,7 +14,9 @@ const FeeTitleAndValues = ({ t, title, values }) => (
   <div>
     <p className={styles.title}>{title}</p>
     <Flexbox className={styles.feeValuesWrapper}>
-      {values.map(({ translationPath, type, value }) => {
+      {values.map(({
+        translationPath, type, value, valueSuffixPath,
+      }) => {
         const formatter = formatterByType[type]
         const formattedValue = formatter(value) || 'N/A'
 
@@ -23,7 +25,7 @@ const FeeTitleAndValues = ({ t, title, values }) => (
             <p>{t(translationPath)}</p>
             <p>
               <strong>
-                {formattedValue}
+                {formattedValue} {t(valueSuffixPath)}
               </strong>
             </p>
           </div>

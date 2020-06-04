@@ -87,6 +87,7 @@ import {
   ErrorStepPermission,
   ErrorStepServer,
   ErrorStepDefault,
+  ErrorCannotCreateRecipient,
 } from './AddRecipient/ErrorStep'
 
 import ConfigurationStep from './AddRecipient/ConfigurationsStep'
@@ -176,6 +177,9 @@ storiesOf('Containers|Page containers', module)
   ))
   .add('Recipient Error Step permission', () => (
     <ErrorStepPermission />
+  ))
+  .add('Recipient Error Step cannot create recipient', () => (
+    <ErrorCannotCreateRecipient />
   ))
   .add('Recipient Error Step server', () => (
     <ErrorStepServer />
@@ -443,9 +447,6 @@ storiesOf('Containers|Page containers', module)
   .add('Home', () => (
     <Home />
   ))
-  .add('Empty State', () => (
-    <EmptyState />
-  ))
 
 storiesOf('Containers|Payment Links/Filter', module)
   .add('Filter', () => <PaymentLinks.Filter />)
@@ -462,3 +463,7 @@ storiesOf('Containers|Payment Links/PaymentLinkList', module)
 storiesOf('Containers|Payment Links/PaymentLinkAdd', module)
   .add('FirstStep', () => <PaymentLinks.PaymentLinkAdd.PaymentLinkFirstStep />)
   .add('Result', () => <PaymentLinks.PaymentLinkAdd.PaymentLinkResult />)
+
+storiesOf('Containers|Empty State', module)
+  .add('Default', () => <EmptyState.EmptyStateDefault />)
+  .add('MDRzao', () => <EmptyState.EmptyStateMDRzao />)

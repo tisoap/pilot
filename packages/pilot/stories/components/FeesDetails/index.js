@@ -1,17 +1,14 @@
 import React from 'react'
 import { path, split } from 'ramda'
-import EmptyState from '../../../src/containers/EmptyState'
 import Section from '../../Section'
+import FeesDetails from '../../../src/components/FeesDetails'
 import translations from '../../../public/locales/pt/translations.json'
 
 const t = (sentence = '') => path(split('.', sentence), translations)
 
-const EmptyStateExample = () => (
+const FeesDetailsDefaultExample = () => (
   <Section>
-    <EmptyState
-      apiKey="api-key"
-      encryptionKey="encryption-key"
-      environment="live"
+    <FeesDetails
       fees={{
         anticipation: undefined,
         antifraud: 70,
@@ -24,19 +21,14 @@ const EmptyStateExample = () => (
         ],
         transfer: 187,
       }}
-      isMDRzao={false}
-      isAdmin
       t={t}
     />
   </Section>
 )
 
-const EmptyStateMDRzaoExample = () => (
+const FeesDetailsMDRzaoExample = () => (
   <Section>
-    <EmptyState
-      apiKey="api-key"
-      encryptionKey="encryption-key"
-      environment="live"
+    <FeesDetails
       fees={{
         anticipation: 1.99,
         antifraud: 70,
@@ -48,13 +40,12 @@ const EmptyStateMDRzaoExample = () => (
         transfer: 187,
       }}
       isMDRzao
-      isAdmin
       t={t}
     />
   </Section>
 )
 
 export default {
-  EmptyStateDefault: EmptyStateExample,
-  EmptyStateMDRzao: EmptyStateMDRzaoExample,
+  FeesDetailsDefault: FeesDetailsDefaultExample,
+  FeesDetailsMDRzao: FeesDetailsMDRzaoExample,
 }
