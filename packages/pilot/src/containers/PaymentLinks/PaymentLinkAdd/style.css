@@ -1,49 +1,6 @@
 @import "former-kit-skin-pagarme/dist/styles/spacing.css";
-@import "former-kit-skin-pagarme/dist/styles/colors.css";
-
-.paymentLinkResult .subtitle {
-  color: var(--color-squanchy-gray-200);
-  font-size: 13px;
-}
-
-.paymentLinkResult .image {
-  margin-top: 60px;
-}
-
-.paymentLinkResult .link {
-  color: var(--color-barney-purple-100);
-  cursor: pointer;
-  font-size: 18px;
-  margin-bottom: var(--spacing-large);
-  margin-top: var(--spacing-large);
-
-  & svg {
-    margin-left: 10px;
-  }
-}
 
 .paymentLinkActions button {
-  margin-top: 30px;
   margin-bottom: var(--spacing-small);
   width: 100%;
-}
-
-.paymentLinkForm > div:not(:last-of-type) {
-  padding-bottom: 40px;
-}
-
-.paymentLinkForm .expirationDate {
-  align-items: center;
-  display: flex;
-  margin-bottom: 10px;
-
-  & > div:last-of-type {
-    margin-left: 10px;
-    width: 150px;
-  }
-}
-
-.paymentLinkForm .expirationMessage {
-  color: var(--color-squanchy-gray-300);
-  font-size: 13px;
 }
